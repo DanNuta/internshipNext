@@ -1,17 +1,10 @@
 "use client";
-import { useQuery } from "@tanstack/react-query";
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import React from "react";
+import axios from "axios";
 
-interface BlogProps {
-  title: string;
-  id: number;
-  description: string;
-  linkImage: string;
-  author: {
-    name: string;
-    prenume: string;
-  };
-}
+import { BlogProps } from "@/types";
+import { Card } from "@/components";
 
 async function getUsers() {
   const res = await fetch("http://localhost:3001/posts");
@@ -20,23 +13,49 @@ async function getUsers() {
 }
 
 export default function ListUsers() {
-  const { data, isLoading, isFetching, error } = useQuery({
+  const queryClient = useQueryClient();
+
+  const { data, isLoading, error } = useQuery({
     queryKey: ["hydrate-users"],
     queryFn: getUsers,
   });
+
+  async function deleteBlogOnServer(id: number) {
+    const deleteItem = await axios.delete(`http://localhost:3001/posts/${id}`);
+    const res = deleteItem.data;
+    return res;
+  }
+
+  const { mutate } = useMutation({
+    mutationFn: deleteBlogOnServer,
+
+    onSuccess: (resonse) => {
+      console.log("succes");
+    },
+
+    onError: (error: Error, posts, context) => {
+      console.log(error.message);
+    },
+
+    onSettled: () => {
+      queryClient.invalidateQueries(["hydrate-users"]);
+    },
+  });
+
+  function deleteHandler(id: number) {
+    mutate(id);
+  }
 
   return (
     <main>
       {error ? (
         <p>Oh no, there was an error</p>
-      ) : isLoading || isFetching ? (
+      ) : isLoading ? (
         <p>Loading...</p>
       ) : data ? (
         <div>
           {data.map((user) => (
-            <div key={user.id}>
-              <h3>{user.title}</h3>
-            </div>
+            <Card key={user.id} data={user} onDelete={deleteHandler} />
           ))}
         </div>
       ) : null}
