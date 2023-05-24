@@ -1,5 +1,6 @@
 import "./globals.css";
 import React from "react";
+import Link from "next/link";
 
 import { Providers } from "@/utils";
 
@@ -16,6 +17,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
+        <nav>
+          <ul>
+            <li>
+              <Link href="/create-blog">Create a new blog</Link>
+            </li>
+            <li>
+              <Link href="/blogs">Blogs</Link>
+            </li>
+          </ul>
+        </nav>
         <Providers>{children}</Providers>
       </body>
     </html>
