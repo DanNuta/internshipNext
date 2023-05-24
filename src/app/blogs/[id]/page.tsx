@@ -13,7 +13,7 @@ const BlogIdPage = async ({ params }: any) => {
   return (
     <>
       <h1>{id}</h1>
-      {blog ? (
+      {blog && (
         <div>
           <h1>{blog?.title}</h1>
 
@@ -24,8 +24,6 @@ const BlogIdPage = async ({ params }: any) => {
             src={blog.linkImage}
           ></Image>
         </div>
-      ) : (
-        <h1>Loading...</h1>
       )}
     </>
   );

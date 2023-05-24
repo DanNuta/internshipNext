@@ -1,5 +1,5 @@
-import React from "react";
-import Link from "next/link";
+import React, { Suspense } from "react";
+
 import { useFetchBlogs } from "@/hooks";
 import { Card } from "@/components";
 import { BlogProps } from "@/types";
@@ -15,7 +15,11 @@ const BlogPage = async () => {
 
       {data &&
         data.map((item) => {
-          return <Card key={item.id} {...item} />;
+          return (
+            <Suspense fallback={<h1>Loading...</h1>}>
+              <Card key={item.id} {...item} />
+            </Suspense>
+          );
         })}
     </div>
   );

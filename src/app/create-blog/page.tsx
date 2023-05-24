@@ -1,4 +1,5 @@
 import { redirect } from "next/navigation";
+import { v4 as uuidv4 } from "uuid";
 
 import { Input, Button, Textarea } from "@/components";
 import { useCreateBlog } from "@/hooks";
@@ -17,20 +18,19 @@ async function postBlog(data: FormData) {
   if (typeof description !== "string" || description.length === 0) return;
   if (typeof image !== "string" || image.length === 0) return;
 
-  const uniq = new Date().getTime();
   const blog: BlogProps = {
     title,
     date: dateTime,
     linkImage: image,
     description,
-    id: uniq,
+    id: uuidv4(),
     author: {
       name: "Dan",
       prenume: "Nuta",
     },
   };
 
-  const send = await useCreateBlog(blog);
+  const send = await useCreateBlog("http://localhost:8000/posts", blog);
   redirect("/blogs");
 }
 

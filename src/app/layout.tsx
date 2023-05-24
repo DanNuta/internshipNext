@@ -25,6 +25,9 @@ export default function RootLayout({
             <li>
               <Link href="/blogs">Blogs</Link>
             </li>
+            <li>
+              <Link href="/contact">Contact</Link>
+            </li>
           </ul>
         </nav>
         <Providers>{children}</Providers>
