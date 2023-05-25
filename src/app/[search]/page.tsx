@@ -16,6 +16,12 @@ export async function generateMetadata({
 }: ParamsProps): Promise<Metadata> {
   const searchData: BlogProps[] = await useSearchParams(search);
 
+  if (!searchData.length) {
+    return {
+      title: "Not found this article",
+    };
+  }
+
   const stringData = search.replaceAll("%20", " ");
 
   return {

@@ -12,6 +12,7 @@ module.exports = {
       "clr-secondary": "#7C7C7C",
       "clr-border": "#F0F1F7",
       "btn-color": "#0E8CC2",
+      "color-body": "#E5E5E5",
     },
     extend: {
       backgroundImage: {

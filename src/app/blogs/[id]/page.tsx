@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
-import { useFetchBlogs, useFetchSingleBlog } from "@/hooks";
+import { useFetchSingleBlog } from "@/hooks";
 import { BlogProps } from "@/types";
 
 type Params = {
