@@ -5,39 +5,40 @@ import Link from "next/link";
 import { BlogProps } from "@/types";
 
 export const Card = ({ ...props }: BlogProps) => {
+  const lengthDescription = props.description.length > 100 ? "..." : "";
   return (
-    <div className="card">
-      <div className="image-container">
-        <Link className="card__link" href={`blogs/${props.id}`}>
+    <div className=" group bg-card  rounded-lg  drop-shadow-md ">
+      <div className="h-[300px]  transition duration-300 ease-in-out overflow-hidden relative rounded-t-lg ">
+        <Link className="" href={`blogs/${props.id}`}>
           <Image
             alt="img"
             width={200}
-            height={200}
-            className="image-container__image"
+            height={300}
+            className="w-full object-cover transition duration-300 ease-in-out group-hover:scale-110"
             src={props.linkImage}
+            style={{ height: "100%" }}
           />
         </Link>
-        <div className="image-container__btns"></div>
       </div>
 
-      <Link className="card__link" href={`blog/${props.id}`}>
-        <div className="body">
-          <div className="body__title">
-            <h1 className="body__title-post">{props.title}</h1>
-            <p className="body__date-post">{props.date}</p>
+      <Link className="" href={`blog/${props.id}`}>
+        <div className=" flex flex-col justify-between p-6 h-[200px]">
+          <div className="">
+            <h1 className="text-clr-primary text-fs-22 mb-2">{props.title}</h1>
+            <p className="text-clr-secondary mb-2">{props.date}</p>
           </div>
 
-          <div className="body__description">
-            <p className="body__description-title">
+          <div className="">
+            <p className="">
               {props.description?.slice(0, 100)}
-              {/* {lengthDescription} */}
+              {lengthDescription}
             </p>
           </div>
 
-          <div className="body__author">
-            <p className="body__author-label">
-              Author: &nbsp;
-              <span className="body__author-info">
+          <div>
+            <p>
+              <span className="font-bold">Author: &nbsp;</span>
+              <span className="text-clr-secondary mb-2">
                 {props.author.name} {props.author.prenume}
               </span>
             </p>

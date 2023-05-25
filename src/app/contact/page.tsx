@@ -36,14 +36,14 @@ const ContactPage = () => {
   }
 
   return (
-    <form action={contactUs}>
-      <Input type="text" placeholder="Name" name="nume" />
-      <Input type="text" placeholder="Prenume" name="prenume" />
-      <Input type="email" placeholder="Email" name="email" />
-      <Input type="tel" placeholder="Nr de telefon" name="tel" />
-      <Textarea name="message" />
+    <Form onSubmit={contactUs}>
+      <Input title="Nume" id="nume" type="text" name="nume" />
+      <Input title="First Name" id="prenume" type="text" name="prenume" />
+      <Input title="Email" id="email" type="email" name="email" />
+      <Input title="Telefon" id="tel" type="tel" name="tel" />
+      <Textarea name="message" id="message" title="Message" />
       <Button type="submit" title="Submit" />
-    </form>
+    </Form>
   );
 };
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export async function useFetchSingleBlog<T>(id: number): Promise<T> {
+export async function useFetchSingleBlog<T>(id: string): Promise<T> {
   try {
     const response = await axios.get(`http://localhost:8000/posts/${id}`);
     if (response.status) {

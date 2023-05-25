@@ -1,26 +1,27 @@
 import React, { Suspense } from "react";
+import type { Metadata } from "next";
 
 import { useFetchBlogs } from "@/hooks";
-import { Card } from "@/components";
+import { Card, AllBlogs } from "@/components";
 import { BlogProps } from "@/types";
 
-const BlogPage = async () => {
-  const data = (await useFetchBlogs(
+export const metadata: Metadata = {
+  title: "Blogs",
+};
+
+const BlogPage = () => {
+  const allBlogs: Promise<BlogProps[]> = useFetchBlogs(
     `http://localhost:8000/posts`
-  )) as BlogProps[];
+  );
 
   return (
     <div>
       <h1>blogs</h1>
 
-      {data &&
-        data.map((item) => {
-          return (
-            <Suspense fallback={<h1>Loading...</h1>}>
-              <Card key={item.id} {...item} />
-            </Suspense>
-          );
-        })}
+      <Suspense fallback={<h1>Loading...</h1>}>
+        {/* @ts-expect-error Server Component */}
+        <AllBlogs promise={allBlogs} />
+      </Suspense>
     </div>
   );
 };

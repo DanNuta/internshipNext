@@ -1,14 +1,19 @@
-"use client";
 import React from "react";
-import { useQuery } from "@tanstack/react-query";
+
 import Image from "next/image";
 
 import { useFetchSingleBlog } from "@/hooks";
 import { BlogProps } from "@/types";
 
-const BlogIdPage = async ({ params }: any) => {
-  const id = params.id as number;
-  const blog = (await useFetchSingleBlog(id)) as BlogProps;
+type Params = {
+  params: {
+    id: string;
+  };
+};
+
+const BlogIdPage = async ({ params: { id } }: Params) => {
+  const paramsId = id;
+  const blog = (await useFetchSingleBlog(paramsId)) as BlogProps;
 
   return (
     <>
