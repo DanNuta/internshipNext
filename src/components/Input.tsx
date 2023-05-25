@@ -1,7 +1,7 @@
 import React, { InputHTMLAttributes } from "react";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-  title: string;
+  title?: string;
 }
 
 export const Input = ({ title, ...props }: InputProps) => {

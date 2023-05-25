@@ -11,7 +11,7 @@ export const AllBlogs = async ({ promise }: AllBlogsProps) => {
   return (
     <div className="grid grid-cols-4 gap-5">
       {blogs.map((item) => {
-        return <Card {...item} />;
+        return <Card key={item.id} {...item} />;
       })}
     </div>
   );

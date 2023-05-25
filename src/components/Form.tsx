@@ -1,11 +1,13 @@
 import React, { PropsWithChildren } from "react";
 
 interface FormProps {
-  onSubmit: (data: FormData) => void;
+  action?: (data: FormData) => void;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
   title?: string;
 }
 
 export const Form: React.FC<PropsWithChildren<FormProps>> = ({
+  action,
   onSubmit,
   children,
   title,
@@ -14,9 +16,10 @@ export const Form: React.FC<PropsWithChildren<FormProps>> = ({
     <div className="flex justify-center items-center h-[100%]">
       <form
         className="w-[380px] bg-clr-primary px-8 py-12 rounded-[10px]"
-        action={onSubmit}
+        onSubmit={onSubmit}
+        action={action}
       >
-        <h1>{title}</h1>
+        {title && <h1>{title}</h1>}
         {children}
       </form>
     </div>

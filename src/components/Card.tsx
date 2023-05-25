@@ -21,7 +21,7 @@ export const Card = ({ ...props }: BlogProps) => {
         </Link>
       </div>
 
-      <Link className="" href={`blog/${props.id}`}>
+      <Link className="" href={`blogs/${props.id}`}>
         <div className=" flex flex-col justify-between p-6 h-[200px]">
           <div className="">
             <h1 className="text-clr-primary text-fs-22 mb-2">{props.title}</h1>
