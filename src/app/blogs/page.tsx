@@ -18,7 +18,9 @@ const BlogPage = async () => {
 
   return (
     <div>
-      <h1>Blogs, {blogs.length}</h1>
+      <h1 className="text-[32px] text-clr-primary font-bold mt-10 mb-8">
+        Blogs, {blogs.length}
+      </h1>
 
       <Suspense fallback={<h1>Loading...</h1>}>
         {/* @ts-expect-error Server Component */}

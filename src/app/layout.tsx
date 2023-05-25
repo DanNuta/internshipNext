@@ -17,7 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-color-body">
+      <body className="bg-color-body max-w-7xl mx-auto my-6">
         <Navigation />
 
         <Providers>{children}</Providers>

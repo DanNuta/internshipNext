@@ -36,7 +36,7 @@ const ContactPage = () => {
   }
 
   return (
-    <Form action={contactUs}>
+    <Form title="Contact Us" action={contactUs}>
       <Input title="Nume" id="nume" type="text" name="nume" />
       <Input title="First Name" id="prenume" type="text" name="prenume" />
       <Input title="Email" id="email" type="email" name="email" />

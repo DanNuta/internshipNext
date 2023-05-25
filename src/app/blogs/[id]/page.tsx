@@ -33,21 +33,37 @@ const BlogIdPage = async ({ params: { id } }: Params) => {
   if (!blog.title) return notFound();
 
   return (
-    <>
-      <h1>{id}</h1>
+    <div className="max-w-[800px] mx-auto mt-8">
       {blog && (
         <div>
-          <h1>{blog?.title}</h1>
+          <h1 className="text-[36px] text-clr-primary font-semibold mb-5	">
+            {blog.title}
+          </h1>
+
+          <div className="flex items-center gap-6  mb-8">
+            <p className="text-[14px] text-clr-secondary">
+              {blog.author.name} {blog.author.prenume}
+            </p>
+            <p className="text-[14px] text-clr-secondary">{blog.date}</p>
+          </div>
 
           <Image
             width={500}
             height={500}
             alt="imag"
             src={blog.linkImage}
-          ></Image>
+            className="w-full rounded-lg mb-8"
+            style={{ height: 700, objectFit: "cover" }}
+          />
+
+          <div>
+            <p className="text-[20px] font-normal text-clr-primary">
+              {blog.description}
+            </p>
+          </div>
         </div>
       )}
-    </>
+    </div>
   );
 };
 

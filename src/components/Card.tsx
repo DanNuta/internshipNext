@@ -29,8 +29,8 @@ export const Card = ({ ...props }: BlogProps) => {
           </div>
 
           <div className="">
-            <p className="">
-              {props.description?.slice(0, 100)}
+            <p className="text-xs">
+              {props.description?.slice(0, 85)}
               {lengthDescription}
             </p>
           </div>

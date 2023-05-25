@@ -35,12 +35,15 @@ const SearchPage = async ({ params: { search } }: ParamsProps) => {
 
   const dataBlog = await useSearchParams(search);
 
-  if (!dataBlog.length)
-    return <h1>{`${search}`} - Nu exista asa tip de blog</h1>;
+  if (!dataBlog.length) {
+    return <h1>{`${stringData}`} - Nu exista asa tip de blog</h1>;
+  }
+
   return (
     <div>
-      <h1>
-        Au fost gasite {dataBlog.length} bloguri pentru termenul {stringData}
+      <h1 className="text-[32px] text-clr-primary font-bold mt-10 mb-8">
+        Au fost gasite {dataBlog.length} bloguri pentru termenul{" "}
+        <span className="italic">"{stringData}"</span>
       </h1>
 
       {/* @ts-expect-error Server Component */}
