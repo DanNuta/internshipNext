@@ -7,7 +7,7 @@ import { BlogProps } from "@/types";
 export const Card = ({ ...props }: BlogProps) => {
   const lengthDescription = props.description.length > 100 ? "..." : "";
   return (
-    <div className=" group bg-[white]  rounded-lg  drop-shadow-md ">
+    <div className=" group bg-[#fff]  rounded-lg  drop-shadow-md dark:bg-dark-color ">
       <div className="h-[300px]  transition duration-300 ease-in-out overflow-hidden relative rounded-t-lg ">
         <Link className="" href={`blogs/${props.id}`}>
           <Image
@@ -24,12 +24,14 @@ export const Card = ({ ...props }: BlogProps) => {
       <Link className="" href={`blogs/${props.id}`}>
         <div className=" flex flex-col justify-between p-6 h-[200px]">
           <div className="">
-            <h1 className="text-clr-primary text-fs-22 mb-2">{props.title}</h1>
+            <h1 className="text-clr-primary text-fs-22 mb-2 dark:text-[#fff]">
+              {props.title}
+            </h1>
             <p className="text-clr-secondary mb-2">{props.date}</p>
           </div>
 
           <div className="">
-            <p className="text-xs">
+            <p className="text-xs dark:text-[#fff]">
               {props.description?.slice(0, 85)}
               {lengthDescription}
             </p>
@@ -37,7 +39,7 @@ export const Card = ({ ...props }: BlogProps) => {
 
           <div>
             <p>
-              <span className="font-bold">Author: &nbsp;</span>
+              <span className="font-bold dark:text-[#fff]">Author: &nbsp;</span>
               <span className="text-clr-secondary mb-2">
                 {props.author.name} {props.author.prenume}
               </span>

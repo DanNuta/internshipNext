@@ -1,6 +1,4 @@
 import React from "react";
-import Link from "next/link";
-import Image from "next/image";
 import { Metadata } from "next";
 
 import { useFetchBlogs } from "@/hooks";
@@ -23,9 +21,12 @@ export const HomePage = async () => {
   const blog = blogs[0];
   return (
     <div>
-      <main className="max-w-7xl mx-auto my-12 h-[450px] w-full relative bg-gradient-to-r from-cyan-600 to-blue-100">
+      <main
+        className="max-w-7xl mx-auto my-12 h-[450px] w-full relative rounded-lg
+        bg-gradient-to-br from-blue-500 to-purple-500"
+      >
         <img
-          className="absolute w-full h-full object-cover rounded-xl "
+          className="absolute w-full h-full object-cover rounded-xl z-0 "
           src={`${blog.linkImage}`}
         />
 

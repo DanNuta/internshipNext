@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: "class",
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -13,6 +14,7 @@ module.exports = {
       "clr-border": "#F0F1F7",
       "btn-color": "#0E8CC2",
       "color-body": "#E5E5E5",
+      "dark-color": "#181A2A",
     },
     extend: {
       backgroundImage: {
