@@ -5,6 +5,8 @@ import { useSearchParams } from "@/hooks";
 import { BlogProps } from "@/types";
 import { AllBlogs } from "@/components";
 
+import { NotFoundPage } from "./NotFound";
+
 interface ParamsProps {
   params: {
     search: string;
@@ -36,11 +38,11 @@ const SearchPage = async ({ params: { search } }: ParamsProps) => {
   const dataBlog = await useSearchParams(search);
 
   if (!dataBlog.length) {
-    return <h1>{`${stringData}`} - Nu exista asa tip de blog</h1>;
+    return <NotFoundPage search={`${stringData}`} />;
   }
 
   return (
-    <div>
+    <div className="max-w-7xl mx-auto">
       <h1 className="text-[32px] text-clr-primary font-bold mt-10 mb-8">
         Au fost gasite {dataBlog.length} bloguri pentru termenul{" "}
         <span className="italic">"{stringData}"</span>

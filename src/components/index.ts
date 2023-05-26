@@ -6,3 +6,4 @@ export * from "./Form";
 export * from "./Navigation";
 export * from "./AllBlogs";
 export * from "./Search";
+export * from "./Footer";

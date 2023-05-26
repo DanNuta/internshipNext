@@ -3,7 +3,7 @@ import React from "react";
 import type { Metadata } from "next";
 
 import { Providers } from "@/utils";
-import { Navigation } from "@/components";
+import { Navigation, Footer } from "@/components";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -17,10 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="bg-color-body max-w-7xl mx-auto my-6">
+      <body className="bg-color-body mt-6 ">
         <Navigation />
 
         <Providers>{children}</Providers>
+
+        <Footer />
       </body>
     </html>
   );

@@ -33,7 +33,7 @@ const BlogIdPage = async ({ params: { id } }: Params) => {
   if (!blog.title) return notFound();
 
   return (
-    <div className="max-w-[800px] mx-auto mt-8">
+    <div className="max-w-[800px] mx-auto mt-8 mb-20">
       {blog && (
         <div>
           <h1 className="text-[36px] text-clr-primary font-semibold mb-5	">

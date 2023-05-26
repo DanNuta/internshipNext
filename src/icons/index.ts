@@ -9,3 +9,8 @@ export * from "./ArrowUp";
 export * from "./ArrowDown";
 export * from "./ArrowRight";
 export * from "./ArrowLeft";
+export * from "./Logo";
+export * from "./Youtube";
+export * from "./Instagram";
+export * from "./Facebook";
+export * from "./contact";
