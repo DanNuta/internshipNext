@@ -16,12 +16,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html className="dark" lang="en">
+    <html id="html-root" lang="en">
       <body className="bg-color-body mt-6 dark:bg-[#242535]  ">
         <Navigation />
-
         <Providers>{children}</Providers>
-
         <Footer />
       </body>
     </html>

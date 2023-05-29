@@ -5,6 +5,8 @@ import { checkData } from "@/utils";
 import { useCreateBlog } from "@/hooks";
 
 const ContactPage = () => {
+  let nameError: string = "";
+
   async function contactUs(data: FormData) {
     "use server";
 
@@ -19,6 +21,10 @@ const ContactPage = () => {
     const checkEmail = checkData(email);
     const checkTel = checkData(tel);
     const checkMessage = checkData(message);
+
+    console.log(nameError);
+
+    nameError = checkName ? "ghjh" : "";
 
     if (checkName || checkPrenume || checkEmail || checkTel || checkMessage)
       return;
@@ -37,7 +43,7 @@ const ContactPage = () => {
 
   return (
     <Form title="Contact Us" action={contactUs}>
-      <Input title="Nume" id="nume" type="text" name="nume" />
+      <Input title="Nume" error={nameError} id="nume" type="text" name="nume" />
       <Input title="First Name" id="prenume" type="text" name="prenume" />
       <Input title="Email" id="email" type="email" name="email" />
       <Input title="Telefon" id="tel" type="tel" name="tel" />

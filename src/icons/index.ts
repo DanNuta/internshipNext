@@ -14,3 +14,4 @@ export * from "./Youtube";
 export * from "./Instagram";
 export * from "./Facebook";
 export * from "./contact";
+export * from "./darkMode";

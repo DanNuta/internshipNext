@@ -7,7 +7,7 @@ import { BlogProps } from "@/types";
 export const Card = ({ ...props }: BlogProps) => {
   const lengthDescription = props.description.length > 100 ? "..." : "";
   return (
-    <div className=" group bg-[#fff]  rounded-lg  drop-shadow-md dark:bg-dark-color ">
+    <div className=" group bg-[#fff]  rounded-lg  drop-shadow-md dark:bg-footer-dark ">
       <div className="h-[300px]  transition duration-300 ease-in-out overflow-hidden relative rounded-t-lg ">
         <Link className="" href={`blogs/${props.id}`}>
           <Image

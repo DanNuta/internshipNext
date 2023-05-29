@@ -21,10 +21,7 @@ export const HomePage = async () => {
   const blog = blogs[0];
   return (
     <div>
-      <main
-        className="max-w-7xl mx-auto my-12 h-[450px] w-full relative rounded-lg
-        bg-gradient-to-br from-blue-500 to-purple-500"
-      >
+      <main className="max-w-7xl mx-auto my-12 h-[450px] w-full relative rounded-lg">
         <img
           className="absolute w-full h-full object-cover rounded-xl z-0 "
           src={`${blog.linkImage}`}
@@ -42,11 +39,11 @@ export const HomePage = async () => {
       </main>
 
       <div className="max-w-7xl mx-auto ">
-        <h1 className="font-bold text-[24px] text-clr-primary mb-8">
+        <h1 className="font-bold text-[24px] text-clr-primary mb-8 dark:text-card">
           Latest Post
         </h1>
-        {/* @ts-expect-error Server Component */}
 
+        {/* @ts-expect-error Server Component */}
         <AllBlogs promise={allBlogs} />
       </div>
 

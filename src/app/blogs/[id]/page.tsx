@@ -36,7 +36,7 @@ const BlogIdPage = async ({ params: { id } }: Params) => {
     <div className="max-w-[800px] mx-auto mt-8 mb-20">
       {blog && (
         <div>
-          <h1 className="text-[36px] text-clr-primary font-semibold mb-5	">
+          <h1 className="text-[36px] text-clr-primary font-semibold mb-5 dark:text-card	">
             {blog.title}
           </h1>
 
@@ -57,7 +57,7 @@ const BlogIdPage = async ({ params: { id } }: Params) => {
           />
 
           <div>
-            <p className="text-[20px] font-normal text-clr-primary">
+            <p className="text-[20px] font-normal text-clr-primary dark:text-card">
               {blog.description}
             </p>
           </div>

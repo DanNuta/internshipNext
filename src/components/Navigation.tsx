@@ -8,7 +8,7 @@ export function Navigation() {
     <nav className="flex items-center justify-between px-6 h-[70px] bg-[white] rounded-[10px] max-w-7xl mx-auto my-6 dark:bg-dark-color ">
       <div>
         <h1>
-          <Link href="/">
+          <Link className="dark:text-[white]" href="/">
             <Logo />
           </Link>
         </h1>

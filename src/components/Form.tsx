@@ -15,12 +15,12 @@ export const Form: React.FC<PropsWithChildren<FormProps>> = ({
   return (
     <div className="flex justify-center items-center h-[85vh]">
       <form
-        className="w-[380px] bg-[white] px-8 py-12 rounded-[10px]"
+        className="w-[380px] bg-[white] px-8 py-12 rounded-[10px] dark:bg-footer-dark"
         onSubmit={onSubmit}
         action={action}
       >
         {title && (
-          <h1 className="text-[24px] mb-4 font-bold text-clr-primary	">
+          <h1 className="text-[24px] mb-4 font-bold text-clr-primary dark:text-[white]	">
             {title}
           </h1>
         )}

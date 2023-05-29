@@ -17,8 +17,8 @@ const BlogPage = async () => {
   const blogs = await allBlogs;
 
   return (
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-[32px] text-clr-primary font-bold mt-10 mb-8">
+    <div className="max-w-7xl mx-auto ">
+      <h1 className="text-[32px] text-clr-primary font-bold mt-10 mb-8 dark:text-card">
         Blogs, {blogs.length}
       </h1>
 
