@@ -1,53 +1,107 @@
+"use client";
+
+import { useState } from "react";
 import { redirect } from "next/navigation";
 
 import { Button, Input, Form, Textarea } from "@/components";
-import { checkData } from "@/utils";
 import { useCreateBlog } from "@/hooks";
+import { inputError, inputRegEx } from "@/utils";
 
 const ContactPage = () => {
-  let nameError: string = "";
+  const [form, setForm] = useState({
+    nume: "",
+    prenume: "",
+    email: "",
+    tel: "",
+    message: "",
+  });
 
-  async function contactUs(data: FormData) {
-    "use server";
+  const [errorFrom, setErrorForm] = useState({
+    nume: "",
+    prenume: "",
+    email: "",
+    tel: "",
+  });
 
-    const name = data.get("nume")?.valueOf();
-    const prenume = data.get("prenume")?.valueOf();
-    const email = data.get("email")?.valueOf();
-    const tel = data.get("tel")?.valueOf();
-    const message = data.get("message")?.valueOf();
+  function handlerInput(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    setForm((prev) => {
+      return { ...prev, [e.target.name]: e.target.value };
+    });
+  }
 
-    const checkName = checkData(name);
-    const checkPrenume = checkData(prenume);
-    const checkEmail = checkData(email);
-    const checkTel = checkData(tel);
-    const checkMessage = checkData(message);
+  async function onSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
 
-    console.log(nameError);
-
-    nameError = checkName ? "ghjh" : "";
-
-    if (checkName || checkPrenume || checkEmail || checkTel || checkMessage)
-      return;
-
-    const contactObj = {
-      name,
-      prenume,
-      email,
-      tel,
-      message,
+    const errorInput = {
+      nume: "",
+      prenume: "",
+      email: "",
+      tel: "",
     };
 
-    await useCreateBlog("http://localhost:8001/contact", contactObj);
-    redirect("/");
+    errorInput.nume = form.nume ? "" : `${inputError.name}`;
+    errorInput.prenume = form.prenume ? "" : `${inputError.prenume}`;
+    errorInput.email = inputRegEx.email.test(form.email)
+      ? ""
+      : `${inputError.email}`;
+
+    errorInput.tel = inputRegEx.tel.test(form.tel) ? "" : `${inputError.tel}`;
+
+    setErrorForm(errorInput);
+
+    const testTel = inputRegEx.tel.test(form.tel);
+    const testEmail = inputRegEx.email.test(form.email);
+
+    const errorAny = !testEmail || !form.nume || !form.prenume || !testTel;
+    if (errorAny) return;
+
+    await useCreateBlog("http://localhost:8001/contact", form);
+
+    window.location.href = "/";
   }
 
   return (
-    <Form title="Contact Us" action={contactUs}>
-      <Input title="Nume" error={nameError} id="nume" type="text" name="nume" />
-      <Input title="First Name" id="prenume" type="text" name="prenume" />
-      <Input title="Email" id="email" type="email" name="email" />
-      <Input title="Telefon" id="tel" type="tel" name="tel" />
-      <Textarea name="message" id="message" title="Message" />
+    <Form title="Contact Us" onSubmit={onSubmit}>
+      <Input
+        title="Nume"
+        id="nume"
+        type="text"
+        onChange={handlerInput}
+        name="nume"
+        error={errorFrom.nume}
+      />
+      <Input
+        title="First Name"
+        id="prenume"
+        onChange={handlerInput}
+        type="text"
+        name="prenume"
+        error={errorFrom.prenume}
+      />
+      <Input
+        title="Email"
+        id="email"
+        type="email"
+        onChange={handlerInput}
+        name="email"
+        error={errorFrom.email}
+      />
+      <Input
+        title="Telefon"
+        id="tel"
+        type="tel"
+        onChange={handlerInput}
+        name="tel"
+        error={errorFrom.tel}
+      />
+      <Textarea
+        name="message"
+        id="message"
+        onChange={handlerInput}
+        title="Message"
+      />
       <Button type="submit" title="Submit" />
     </Form>
   );

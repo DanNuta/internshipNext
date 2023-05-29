@@ -1,7 +1,5 @@
 import axios from "axios";
 
-import { BlogProps } from "@/types";
-
 export async function useCreateBlog<T>(url: string, data: T): Promise<T> {
   try {
     const send = await axios.post(url, data);
