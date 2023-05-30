@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export const HomePage = async () => {
   const allBlogs: Promise<BlogProps[]> = useFetchBlogs(
-    "http://localhost:8000/posts"
+    "http://localhost:8000/posts?_page=1&_limit=6"
   );
 
   const blogs = (await useFetchBlogs(

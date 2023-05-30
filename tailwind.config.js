@@ -1,3 +1,5 @@
+import darkMode from "./";
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: "class",
@@ -31,7 +33,7 @@ module.exports = {
       },
 
       content: {
-        //imageDarkMode: 'url("./src/icons/darkMode/dark.svg")',
+        imageDarkMode: 'url("/next.svg")',
       },
     },
   },

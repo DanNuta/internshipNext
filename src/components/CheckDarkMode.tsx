@@ -1,33 +1,41 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
-import Image from "next/image";
+import { useState, useLayoutEffect } from "react";
 
 export const CheckDarkMode = () => {
-  const inputDark = useRef<HTMLInputElement>(null);
+  const [check, setChecked] = useState(false);
+
+  const toggleSwich =
+    "absolute flex items-center inset-0 bg-clr-secondary ease-in-out duration-300 dark:bg-[#4B6BFB] rounded-full | after:content-[''] after:w-6 after:h-6 after:bg-[url('/dark.svg')] after:bg-[#ffffff] after:flex after:items-center after:justify-center after:absolute after:rounded-full after:bg-no-repeat after:bg-center";
 
   function toggleDarkMode() {
     const rootHtml = document.querySelector("#html-root") as HTMLHtmlElement;
-    const isChecked = inputDark.current?.checked;
+    //const isChecked = inputDark.current?.checked;
 
-    if (!isChecked) {
-      rootHtml.classList.add("dark");
-      rootHtml.classList.remove("white");
-      localStorage.setItem("darkMode", "dark");
-    } else {
-      rootHtml.classList.add("white");
-      rootHtml.classList.remove("dark");
-      localStorage.setItem("darkMode", "white");
-    }
+    setChecked((prev) => {
+      if (prev) {
+        rootHtml.classList.add("dark");
+        rootHtml.classList.remove("white");
+        localStorage.setItem("darkMode", "dark");
+      } else {
+        rootHtml.classList.add("white");
+        rootHtml.classList.remove("dark");
+        localStorage.setItem("darkMode", "white");
+      }
+
+      return !prev;
+    });
   }
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const dataLocalStorege = localStorage.getItem("darkMode");
     const rootHtml = document.querySelector("#html-root") as HTMLHtmlElement;
 
     if (dataLocalStorege === null) return;
+    const localData = dataLocalStorege === "dark" ? false : true;
+    setChecked(localData);
+
     rootHtml.classList.add(`${dataLocalStorege}`);
-    inputDark.current?.checked;
   }, []);
 
   return (
@@ -36,13 +44,11 @@ export const CheckDarkMode = () => {
       className="w-12 h-7 relative cursor-pointer"
       htmlFor="input-dark"
     >
-      <input
-        ref={inputDark}
-        id="input-dark"
-        type="checkbox"
-        className="hidden"
-      />
-      <span className="absolute left-1 flex items-center inset-0 bg-clr-secondary dark:bg-[#4B6BFB] rounded-full | after:content-imageDarkMode after:w-6 after:h-6 after:bg-[white] after:flex after:items-center after:justify-center"></span>
+      <span
+        className={`${toggleSwich} ${
+          check ? "after:left-[2px]" : "after:right-[2px]"
+        } `}
+      ></span>
     </label>
   );
 };
