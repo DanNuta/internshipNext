@@ -30,19 +30,28 @@ export const Footer = () => {
 
           <ul className="flex items-center gap-6 dark:text-card">
             <li>
-              <Link href="#">
+              <a
+                target="_blank"
+                href="https://www.youtube.com/channel/UCmC_gBsoRYIik8Ez-Y1oPSA"
+              >
                 <Instagram />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="#">
+              <a
+                target="_blank"
+                href="https://www.youtube.com/channel/UCmC_gBsoRYIik8Ez-Y1oPSA"
+              >
                 <Facebook />
-              </Link>
+              </a>
             </li>
             <li>
-              <Link href="#">
+              <a
+                target="_blank"
+                href="https://www.youtube.com/channel/UCmC_gBsoRYIik8Ez-Y1oPSA"
+              >
                 <Youtube />
-              </Link>
+              </a>
             </li>
           </ul>
         </div>
