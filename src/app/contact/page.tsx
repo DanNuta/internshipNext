@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { Metadata } from "next";
 
 import { Button, Input, Form, Textarea } from "@/components";
 import { useCreateBlog } from "@/hooks";

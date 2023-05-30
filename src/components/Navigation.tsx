@@ -1,35 +1,57 @@
+"use client";
+
 import Link from "next/link";
+import { useState } from "react";
 
 import { Search, CheckDarkMode } from "@/components";
-import { Logo } from "@/icons";
+import { Logo, Bars } from "@/icons";
 
 export function Navigation() {
+  const [mobile, setMobile] = useState(false);
+
   return (
-    <nav className="flex items-center justify-between px-6 h-[70px] bg-[white] rounded-[10px] max-w-7xl mx-auto my-6 dark:bg-dark-color ">
-      <div>
-        <h1>
-          <Link className="dark:text-[white]" href="/">
-            <Logo />
-          </Link>
-        </h1>
-      </div>
+    <>
+      <nav className="max-w-7xl w-[95%] mx-auto relative flex items-center justify-between px-6 h-[70px] bg-[white] rounded-[10px]  dark:bg-dark-color | ">
+        <div>
+          <h1>
+            <Link className="dark:text-[white]" href="/">
+              <Logo />
+            </Link>
+          </h1>
+        </div>
 
-      <ul className="flex items-center gap-x-14 text-base font-semibold text-clr-primary dark:text-card">
-        <li>
-          <Link href="/">Home</Link>
-        </li>
-        <li>
-          <Link href="/blogs">Blogs</Link>
-        </li>
-        <li>
-          <Link href="/contact">Contact</Link>
-        </li>
-      </ul>
+        <ul className="hidden md:flex md:items-center md:gap-x-14 md:text-base md:font-semibold text-clr-primary dark:text-card | ">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/blogs">Blogs</Link>
+          </li>
+          <li>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
 
-      <div className="flex items-center gap-10">
-        <Search />
-        <CheckDarkMode />
-      </div>
-    </nav>
+        <div className="flex items-center gap-4 dark:text-card">
+          <Search />
+          <CheckDarkMode />
+          <Bars onClick={() => setMobile((prev) => !prev)} />
+        </div>
+      </nav>
+
+      {mobile && (
+        <ul className="absolute w-full justify-center mt-2  flex items-center gap-x-14 text-base font-semibold text-clr-primary dark:text-card | ">
+          <li>
+            <Link href="/">Home</Link>
+          </li>
+          <li>
+            <Link href="/blogs">Blogs</Link>
+          </li>
+          <li>
+            <Link href="/contact">Contact</Link>
+          </li>
+        </ul>
+      )}
+    </>
   );
 }

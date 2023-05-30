@@ -15,3 +15,4 @@ export * from "./Instagram";
 export * from "./Facebook";
 export * from "./contact";
 export * from "./darkMode";
+export * from "./bars";

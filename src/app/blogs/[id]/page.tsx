@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Metadata } from "next";
@@ -19,7 +18,7 @@ export async function generateMetadata({
 
   if (!blog.title) {
     return {
-      title: `${id}, this user doen't exist`,
+      title: `${id}, this user doesn't exist`,
     };
   }
   return {
