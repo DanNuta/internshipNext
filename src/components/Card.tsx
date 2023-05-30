@@ -22,7 +22,7 @@ export const Card = ({ ...props }: BlogProps) => {
       </div>
 
       <Link className="" href={`blogs/${props.id}`}>
-        <div className=" flex flex-col justify-between p-6 h-[200px]">
+        <div className=" flex flex-col justify-between p-6 h-[200px] sm:p-3">
           <div className="">
             <h1 className="text-clr-primary text-fs-22 mb-2 dark:text-[#fff]">
               {props.title}
