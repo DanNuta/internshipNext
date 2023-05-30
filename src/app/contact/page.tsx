@@ -1,4 +1,5 @@
 "use client";
+
 import { useState } from "react";
 import { Metadata } from "next";
 
@@ -6,11 +7,7 @@ import { Button, Input, Form, Textarea } from "@/components";
 import { useCreateBlog } from "@/hooks";
 import { inputError, inputRegEx } from "@/utils";
 
-export const metadata: Metadata = {
-  title: "Contact",
-};
-
-export const ContactPage = () => {
+const ContactPage = () => {
   const [form, setForm] = useState({
     nume: "",
     prenume: "",
