@@ -20,7 +20,7 @@ const HomePage = async () => {
   const blog = blogs[0];
   return (
     <div>
-      <main className="max-w-7xl mx-auto my-12 h-[450px] w-full relative rounded-lg">
+      <main className="max-w-7xl w-[95%] mx-auto my-12 h-[450px] relative rounded-lg">
         <img
           className="absolute w-full h-full object-cover rounded-xl z-0 "
           src={`${blog.linkImage}`}
@@ -37,7 +37,7 @@ const HomePage = async () => {
         </div>
       </main>
 
-      <div className="max-w-7xl mx-auto ">
+      <div className="max-w-7xl mx-auto w-[95%] ">
         <h1 className="font-bold text-[24px] text-clr-primary mb-8 dark:text-card">
           Latest Post
         </h1>
@@ -46,7 +46,7 @@ const HomePage = async () => {
         <AllBlogs promise={allBlogs} />
       </div>
 
-      <div className=" my-40 flex items-center justify-center flex-col text-card h-[450px] w-full bg-[url('https://i2-prod.mirror.co.uk/incoming/article26324741.ece/ALTERNATES/s615b/0_GettyImages-1238736128.jpg')] bg-no-repeat bg-cover bg-center ">
+      <div className=" my-40 flex items-center justify-center text-center flex-col text-card h-[450px] w-full bg-[url('https://i2-prod.mirror.co.uk/incoming/article26324741.ece/ALTERNATES/s615b/0_GettyImages-1238736128.jpg')] bg-no-repeat bg-cover bg-center ">
         <h1 className="font-bold text-[36px] mb-3">
           Richird Norton photorealistic rendering as real photos
         </h1>
