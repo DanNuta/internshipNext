@@ -35,7 +35,9 @@ export function Navigation() {
         <div className="flex items-center gap-4 dark:text-card">
           <Search />
           <CheckDarkMode />
-          <Bars onClick={() => setMobile((prev) => !prev)} />
+          <div className="md:hidden">
+            <Bars onClick={() => setMobile((prev) => !prev)} />
+          </div>
         </div>
       </nav>
 
