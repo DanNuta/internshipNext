@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   const allBlogs: Promise<BlogProps[]> = useFetchBlogs(
-    "http://localhost:8000/posts?_page=1&_limit=6"
+    "https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/posts"
   );
 
   const blogs = (await useFetchBlogs(
-    "http://localhost:8000/posts"
+    "https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/posts"
   )) as BlogProps[];
 
   const blog = blogs[0];
@@ -23,7 +23,7 @@ const HomePage = async () => {
       <main className="max-w-7xl w-[95%] mx-auto my-12 h-[450px] relative rounded-lg">
         <img
           className="absolute w-full h-full object-cover rounded-xl z-0 "
-          src={`${blog.linkImage}`}
+          src={`${blog.img}`}
         />
 
         <div className="text-[white] absolute bottom-10 left-10">

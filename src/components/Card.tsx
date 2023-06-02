@@ -9,19 +9,19 @@ export const Card = ({ ...props }: BlogProps) => {
   return (
     <div className=" group bg-[#fff]  rounded-lg  drop-shadow-md dark:bg-footer-dark ">
       <div className="h-[300px]  transition duration-300 ease-in-out overflow-hidden relative rounded-t-lg ">
-        <Link className="" href={`blogs/${props.id}`}>
+        <Link className="" href={`blogs/${props._id}`}>
           <Image
             alt="img"
             width={200}
             height={300}
             className="w-full object-cover transition duration-300 ease-in-out group-hover:scale-110"
-            src={props.linkImage}
+            src={props.img}
             style={{ height: "100%" }}
           />
         </Link>
       </div>
 
-      <Link className="" href={`blogs/${props.id}`}>
+      <Link className="" href={`blogs/${props._id}`}>
         <div className=" flex flex-col justify-between p-6 h-[200px] sm:p-3">
           <div className="">
             <h1 className="text-clr-primary text-fs-22 mb-2 dark:text-[#fff]">

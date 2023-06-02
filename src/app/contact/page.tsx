@@ -40,23 +40,24 @@ const ContactPage = () => {
       tel: "",
     };
 
-    errorInput.nume = form.nume ? "" : `${inputError.name}`;
-    errorInput.prenume = form.prenume ? "" : `${inputError.prenume}`;
-    errorInput.email = inputRegEx.email.test(form.email)
-      ? ""
-      : `${inputError.email}`;
-
-    errorInput.tel = inputRegEx.tel.test(form.tel) ? "" : `${inputError.tel}`;
-
-    setErrorForm(errorInput);
-
     const testTel = inputRegEx.tel.test(form.tel);
     const testEmail = inputRegEx.email.test(form.email);
 
+    errorInput.nume = form.nume ? "" : `${inputError.name}`;
+    errorInput.prenume = form.prenume ? "" : `${inputError.prenume}`;
+    errorInput.email = testEmail ? "" : `${inputError.email}`;
+    errorInput.tel = testTel ? "" : `${inputError.tel}`;
+
+    setErrorForm(errorInput);
+
     const errorAny = !testEmail || !form.nume || !form.prenume || !testTel;
+
     if (errorAny) return;
 
-    await useCreateBlog("http://localhost:8001/contact", form);
+    await useCreateBlog(
+      "https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/contact",
+      form
+    );
 
     window.location.href = "/";
   }

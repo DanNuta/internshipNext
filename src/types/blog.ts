@@ -1,8 +1,8 @@
 export interface BlogProps {
   title: string;
-  id: string;
+  _id: string;
   description: string;
-  linkImage: string;
+  img: string;
   author: {
     name: string;
     prenume: string;

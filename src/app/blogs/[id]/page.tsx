@@ -51,7 +51,7 @@ const BlogIdPage = async ({ params: { id } }: Params) => {
               width={500}
               height={500}
               alt="imag"
-              src={blog.linkImage}
+              src={blog.img}
               className="w-full rounded-lg mb-8 object-cover h-full"
             />
           </div>

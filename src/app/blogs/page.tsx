@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 const BlogPage = async () => {
   const allBlogs: Promise<BlogProps[]> = useFetchBlogs(
-    `http://localhost:8000/posts`
+    `https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/posts`
   );
 
   const blogs = await allBlogs;
