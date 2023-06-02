@@ -20,7 +20,6 @@ const LoadingPage = () => {
           fill="red"
         />
       </svg>
-      {/* <span className="sr-only">Loading...</span> */}
     </div>
   );
 };

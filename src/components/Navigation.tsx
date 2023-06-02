@@ -21,13 +21,15 @@ export function Navigation() {
         </div>
 
         <ul className="hidden md:flex md:items-center md:gap-x-14 md:text-base md:font-semibold text-clr-primary dark:text-card | ">
-          <li>
-            <Link href="/">Home</Link>
+          <li className="hover:text-blue-800">
+            <Link className="" href="/">
+              Home
+            </Link>
           </li>
-          <li>
+          <li className="hover:text-blue-800">
             <Link href="/blogs">Blogs</Link>
           </li>
-          <li>
+          <li className="hover:text-blue-800">
             <Link href="/contact">Contact</Link>
           </li>
         </ul>

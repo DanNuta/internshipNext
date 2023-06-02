@@ -8,3 +8,4 @@ export * from "./AllBlogs";
 export * from "./Search";
 export * from "./Footer";
 export * from "./CheckDarkMode";
+export * from "./NotFound";

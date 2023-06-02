@@ -79,21 +79,30 @@ export const Footer = () => {
           </h1>
 
           <ul className="flex flex-col gap-5 justify-center md:justify-start dark:text-footer-text-dark">
-            <li className="flex justify-center gap-2 md:justify-start ">
+            <li className="flex justify-center items-center gap-2 md:justify-start ">
               <Clock /> 9:00 - 18:00
             </li>
 
-            <li className="flex justify-center gap-2 md:justify-start">
-              <Tel /> +373 787 53 333
+            <li className="flex justify-center items-center gap-2 md:justify-start">
+              <Tel />
+              <Link href="tel:1-562-867-5309">1-562-867-5309</Link>
             </li>
 
-            <li className="flex justify-center gap-2 md:justify-start">
-              <Email /> scgeotermal.av@gmail.com
+            <li className="flex justify-center items-center gap-2 md:justify-start">
+              <Email />
+              <Link href="mailto:scgeotermal.av@gmail.com">
+                scgeotermal.av@gmail.com
+              </Link>
             </li>
 
-            <li className="flex justify-center gap-2  md:justify-start">
+            <li className="flex justify-center items-center gap-2  md:justify-start">
               <Location />
-              Chișinău, str. Alba-Iulia 190/1
+              <Link
+                target="_blank"
+                href="https://www.google.com/maps?ll=47.040759,28.846954&z=12&t=m&hl=ro&gl=US&mapclient=embed"
+              >
+                Chișinău, str. Alba-Iulia 190/1
+              </Link>
             </li>
           </ul>
         </div>

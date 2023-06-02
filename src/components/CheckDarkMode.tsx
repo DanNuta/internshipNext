@@ -5,12 +5,15 @@ import { useState, useLayoutEffect } from "react";
 export const CheckDarkMode = () => {
   const [check, setChecked] = useState(false);
 
+  const imgDarkLightMode = check
+    ? "after:bg-[url('/moon.svg')]"
+    : "after:bg-[url('/dark.svg')]";
+
   const toggleSwich =
-    "absolute flex items-center inset-0 bg-clr-secondary ease-in-out duration-300 dark:bg-[#4B6BFB] rounded-full | after:content-[''] after:w-6 after:h-6 after:bg-[url('/dark.svg')] after:bg-[#ffffff] after:flex after:items-center after:justify-center after:absolute after:rounded-full after:bg-no-repeat after:bg-center";
+    "absolute flex items-center inset-0 bg-clr-secondary ease-in-out duration-300 dark:bg-[#4B6BFB] rounded-full | after:content-[''] after:w-6 after:h-6 after:bg-[#ffffff] after:flex after:items-center after:justify-center after:absolute after:rounded-full after:bg-no-repeat after:bg-center";
 
   function toggleDarkMode() {
     const rootHtml = document.querySelector("#html-root") as HTMLHtmlElement;
-    //const isChecked = inputDark.current?.checked;
 
     setChecked((prev) => {
       if (prev) {
@@ -47,7 +50,7 @@ export const CheckDarkMode = () => {
       <span
         className={`${toggleSwich} ${
           check ? "after:left-[2px]" : "after:right-[2px]"
-        } `}
+        } ${imgDarkLightMode}`}
       ></span>
     </label>
   );

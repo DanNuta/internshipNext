@@ -13,7 +13,7 @@ export const Form: React.FC<PropsWithChildren<FormProps>> = ({
   title,
 }) => {
   return (
-    <div className="max-w-7xl w-[95%] mx-auto flex justify-center items-center h-[85vh]">
+    <div className="max-w-7xl w-[95%] mx-auto flex justify-center items-center h-[85vh] lg:max-w-[500px]">
       <form
         className="w-full bg-[white] px-8 py-12 rounded-[10px] dark:bg-footer-dark"
         onSubmit={onSubmit}

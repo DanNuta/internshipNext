@@ -2,9 +2,7 @@ import { Metadata } from "next";
 
 import { useSearchParams } from "@/hooks";
 import { BlogProps } from "@/types";
-import { AllBlogs } from "@/components";
-
-import { NotFoundPage } from "./NotFound";
+import { AllBlogs, NotFoundPage } from "@/components";
 
 interface ParamsProps {
   params: {
