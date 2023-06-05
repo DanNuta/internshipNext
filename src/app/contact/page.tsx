@@ -102,7 +102,7 @@ const ContactPage = () => {
         onChange={handlerInput}
         title="Message"
       />
-      <Button type="submit" title="Submit" />
+      <Button type="submit">Submit</Button>
     </Form>
   );
 };
