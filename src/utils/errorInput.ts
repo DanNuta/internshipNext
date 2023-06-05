@@ -1,6 +1,6 @@
 export const inputError = {
-  name: "Trebuie sa introduci un nume",
-  prenume: "Trebuie sa introduci un prenume",
-  email: "Acest email nu este valid",
-  tel: "Trebuie sa introdci un numar de telefon valid",
+  name: "You must enter a name",
+  prenume: "You must enter a first name",
+  email: "This email is not valid",
+  tel: "You must enter a valid phone number",
 };
