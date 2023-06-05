@@ -22,9 +22,8 @@ export const Footer = () => {
           </Link>
 
           <p className="hidden md:flex md:mt-8 md:mb-6 md:text-[12px] md:font-medium md:text-clr-primary dark:text-footer-text-dark">
-            Geosport mereu este gata să ofere servicii de calitate, în scurt
-            timp, alături de o echipă bună și cu dorința de a aduce Europa
-            acasă.
+            Geosport is always ready to offer quality services, in short time,
+            with a good team and with the desire to bring Europe the home.
           </p>
 
           <ul className="hidden md:flex md:items-center md:gap-6 dark:text-card">
@@ -120,7 +119,7 @@ export const Footer = () => {
 
       <div>
         <p className="py-5 text-center dark:text-footer-text-dark">
-          Copyright © 2022. Toate drepturile sunt rezervate.
+          Copyright © 2022. All rights reserved.
         </p>
       </div>
     </footer>
