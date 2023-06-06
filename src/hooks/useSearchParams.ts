@@ -3,8 +3,7 @@ import axios from "axios";
 import { BlogProps } from "@/types";
 
 export async function useSearchParams(search: string): Promise<BlogProps[]> {
-  const url =
-    "https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/posts?blogs=";
+  const url = `${process.env.NEXT_API_POSTS}?blogs=`;
 
   try {
     const searchBlogs = await axios.get(url + search);

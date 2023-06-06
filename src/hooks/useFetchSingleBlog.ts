@@ -2,9 +2,7 @@ import axios from "axios";
 
 export async function useFetchSingleBlog<T>(id: string): Promise<T> {
   try {
-    const response = await axios.get(
-      `https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/posts/${id}`
-    );
+    const response = await axios.get(`${process.env.NEXT_API_POSTS}/${id}`);
     if (response.status) {
       const data = await response.data;
       return data as T;

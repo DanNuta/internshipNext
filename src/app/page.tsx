@@ -10,11 +10,11 @@ export const metadata: Metadata = {
 
 const HomePage = async () => {
   const allBlogs: Promise<BlogProps[]> = useFetchBlogs(
-    "https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/posts"
+    `${process.env.NEXT_API_POSTS}`
   );
 
   const blogs = (await useFetchBlogs(
-    "https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/posts"
+    `${process.env.NEXT_API_POSTS}`
   )) as BlogProps[];
 
   const blog = blogs[0];

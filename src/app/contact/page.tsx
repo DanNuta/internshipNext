@@ -54,10 +54,7 @@ const ContactPage = () => {
 
     if (errorAny) return;
 
-    await useCreateBlog(
-      "https://leafy-parfait-dd1dba.netlify.app/.netlify/functions/api/contact",
-      form
-    );
+    await useCreateBlog(`${process.env.NEXT_PUBLIC_CONTACT}`, form);
 
     window.location.href = "/";
   }
