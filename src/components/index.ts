@@ -9,3 +9,4 @@ export * from "./Search";
 export * from "./Footer";
 export * from "./CheckDarkMode";
 export * from "./NotFound";
+export * from "./ErrorBoundary";

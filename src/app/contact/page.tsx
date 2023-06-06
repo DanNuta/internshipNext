@@ -7,6 +7,8 @@ import { useCreateBlog } from "@/hooks";
 import { inputError, inputRegEx } from "@/utils";
 
 const ContactPage = () => {
+  const [pending, setIsPending] = useState(false);
+
   const [form, setForm] = useState({
     nume: "",
     prenume: "",
@@ -54,7 +56,10 @@ const ContactPage = () => {
 
     if (errorAny) return;
 
+    setIsPending(true);
     await useCreateBlog(`${process.env.NEXT_PUBLIC_CONTACT}`, form);
+
+    setIsPending(false);
 
     window.location.href = "/";
   }
@@ -99,7 +104,9 @@ const ContactPage = () => {
         onChange={handlerInput}
         title="Message"
       />
-      <Button type="submit">Submit</Button>
+      <Button className="bg-slate-100" disabled={pending ? true : false}>
+        {pending ? "Pending" : "Submit"}
+      </Button>
     </Form>
   );
 };
