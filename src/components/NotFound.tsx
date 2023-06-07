@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 interface NotFoundProps {
-  search: string;
+  search?: string;
 }
 
 export const NotFoundPage = ({ search }: NotFoundProps) => {

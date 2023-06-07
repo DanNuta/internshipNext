@@ -4,6 +4,7 @@ import { Metadata } from "next";
 
 import { useFetchSingleBlog } from "@/hooks";
 import { BlogProps } from "@/types";
+import { NotFoundPage } from "@/components";
 
 type Params = {
   params: {
@@ -29,7 +30,9 @@ export async function generateMetadata({
 const BlogIdPage = async ({ params: { id } }: Params) => {
   const blog = (await useFetchSingleBlog(id)) as BlogProps;
 
-  if (!blog.title) return notFound();
+  if (!blog.title || id === undefined) {
+    return <NotFoundPage />;
+  }
 
   return (
     <div className="max-w-[800px] mx-auto mt-8 mb-20 w-[95%]">
