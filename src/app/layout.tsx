@@ -1,8 +1,8 @@
-import "./globals.css";
 import type { Metadata } from "next";
 
-import { Providers } from "@/utils";
 import { Navigation, Footer, ErrorBoundary } from "@/components";
+
+import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -18,9 +18,7 @@ export default function RootLayout({
     <html id="html-root" lang="en">
       <body className="bg-color-body mt-6 dark:bg-[#242535]  ">
         <Navigation />
-        <ErrorBoundary>
-          <Providers>{children}</Providers>
-        </ErrorBoundary>
+        <ErrorBoundary>{children}</ErrorBoundary>
         <Footer />
       </body>
     </html>

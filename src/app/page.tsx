@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Image from "next/image";
 
 import { useFetchBlogs } from "@/hooks";
 import { BlogProps } from "@/types";
@@ -17,29 +18,31 @@ const HomePage = async () => {
     `${process.env.NEXT_API_POSTS}`
   )) as BlogProps[];
 
-  const blog = blogs[0];
+  const { author, date, img, title } = blogs[0];
   return (
     <div>
-      <main className="max-w-7xl w-[95%] mx-auto my-12 h-[450px] relative rounded-lg">
-        <img
-          className="absolute w-full h-full object-cover rounded-xl z-0 "
-          src={`${blog.img}`}
+      <main className=" max-w-7xl w-[95%] mx-auto my-12 h-[450px] relative rounded-lg">
+        <Image
+          className="w-full h-full object-cover rounded-xl z-0 "
+          fill
+          src={`${img}`}
+          alt="header images"
         />
 
         <div className="text-[white] absolute bottom-10 left-10">
-          <h1 className="text-[32px] font-semibold mb-6">{blog.title}</h1>
+          <h1 className="text-[32px] font-semibold mb-6">{title}</h1>
           <div className="flex items-center gap-5">
             <p className="font-medium text-[16px]">
-              {blog.author.name} {blog.author.prenume}
+              {author.name} {author.firstName}
             </p>
-            <p className="font-medium text-[16px]">{blog.date}</p>
+            <p className="font-medium text-[16px]">{date}</p>
           </div>
         </div>
       </main>
 
       <div className="max-w-7xl mx-auto w-[95%] ">
         <h1 className="font-bold text-[24px] text-clr-primary mb-8 dark:text-card">
-          Latest Post
+          Latest Posts
         </h1>
 
         {/* @ts-expect-error Server Component */}

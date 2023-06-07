@@ -5,7 +5,7 @@ export interface BlogProps {
   img: string;
   author: {
     name: string;
-    prenume: string;
+    firstName: string;
   };
   date: string;
 }

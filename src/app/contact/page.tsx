@@ -4,7 +4,7 @@ import { useState } from "react";
 
 import { Button, Input, Form, Textarea } from "@/components";
 import { useCreateBlog } from "@/hooks";
-import { inputError, inputRegEx } from "@/utils";
+import { error, validate } from "@/messages";
 
 const ContactPage = () => {
   const [pending, setIsPending] = useState(false);
@@ -42,13 +42,13 @@ const ContactPage = () => {
       tel: "",
     };
 
-    const testTel = inputRegEx.tel.test(form.tel);
-    const testEmail = inputRegEx.email.test(form.email);
+    const testTel = validate.tel.test(form.tel);
+    const testEmail = validate.email.test(form.email);
 
-    errorInput.nume = form.nume ? "" : `${inputError.name}`;
-    errorInput.prenume = form.prenume ? "" : `${inputError.prenume}`;
-    errorInput.email = testEmail ? "" : `${inputError.email}`;
-    errorInput.tel = testTel ? "" : `${inputError.tel}`;
+    errorInput.nume = form.nume ? "" : `${error.name}`;
+    errorInput.prenume = form.prenume ? "" : `${error.prenume}`;
+    errorInput.email = testEmail ? "" : `${error.email}`;
+    errorInput.tel = testTel ? "" : `${error.tel}`;
 
     setErrorForm(errorInput);
 

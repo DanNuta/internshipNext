@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { notFound } from "next/navigation";
 import { Metadata } from "next";
 
 import { useFetchSingleBlog } from "@/hooks";
@@ -15,55 +14,53 @@ type Params = {
 export async function generateMetadata({
   params: { id },
 }: Params): Promise<Metadata> {
-  const blog = (await useFetchSingleBlog(id)) as BlogProps;
+  const { title } = (await useFetchSingleBlog(id)) as BlogProps;
 
-  if (!blog.title) {
+  if (!title || id === undefined) {
     return {
       title: `${id}, this user doesn't exist`,
     };
   }
   return {
-    title: `${blog.title}`,
+    title: `${title}`,
   };
 }
 
 const BlogIdPage = async ({ params: { id } }: Params) => {
-  const blog = (await useFetchSingleBlog(id)) as BlogProps;
+  const { _id, author, date, description, img, title } =
+    (await useFetchSingleBlog(id)) as BlogProps;
 
-  if (!blog.title || id === undefined) {
+  if (!title || id === undefined) {
     return <NotFoundPage />;
   }
 
   return (
     <div className="max-w-[800px] mx-auto mt-8 mb-20 w-[95%]">
-      {blog && (
+      {_id && (
         <div>
           <h1 className="text-[34px] text-clr-primary font-semibold mb-5 dark:text-card	">
-            {blog.title}
+            {title}
           </h1>
 
           <div className="flex items-center gap-6  mb-8">
             <p className="text-[14px] text-clr-secondary">
-              {blog.author.name} {blog.author.prenume}
+              {author.name} {author.firstName}
             </p>
-            <p className="text-[14px] text-clr-secondary">{blog.date}</p>
+            <p className="text-[14px] text-clr-secondary">{date}</p>
           </div>
 
-          <div className="h-[200px] mb-3 sm:h-[400px]">
+          <div className="relative h-[200px] mb-3 sm:h-[400px]">
             <Image
-              width={500}
-              height={500}
+              fill
               alt="imag"
-              src={blog.img}
-              className="w-full rounded-lg mb-8 object-cover h-full"
+              src={img}
+              className="w-full h-full rounded-lg mb-8 object-cover"
             />
           </div>
 
-          <div>
-            <p className="text-[20px] font-normal text-clr-primary dark:text-card">
-              {blog.description}
-            </p>
-          </div>
+          <p className="text-[20px] font-normal text-clr-primary dark:text-card">
+            {description}
+          </p>
         </div>
       )}
     </div>

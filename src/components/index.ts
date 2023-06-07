@@ -1,4 +1,4 @@
-export * from "./Card";
+export * from "./BlogCard";
 export * from "./Input";
 export * from "./Button";
 export * from "./Textarea";

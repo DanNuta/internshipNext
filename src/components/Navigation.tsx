@@ -22,9 +22,7 @@ export function Navigation() {
 
         <ul className="hidden md:flex md:items-center md:gap-x-14 md:text-base md:font-semibold text-clr-primary dark:text-card | ">
           <li className="hover:text-blue-800">
-            <Link className="" href="/">
-              Home
-            </Link>
+            <Link href="/">Home</Link>
           </li>
           <li className="hover:text-blue-800">
             <Link href="/blogs">Blogs</Link>
