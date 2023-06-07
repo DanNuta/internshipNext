@@ -8,7 +8,7 @@ export const NotFoundPage = ({ search }: NotFoundProps) => {
   return (
     <div className="max-w-7xl h-[44vh] mx-auto flex items-center justify-center flex-col mb-8 dark:text-card">
       <h1 className="text-[24px] font-normal mb-8">
-        Ne cerem scuze, dar nu sa gasit asa tip de articol{" "}
+        We apologize, but no such article was found{" "}
         <span className="italic">{search}</span>
       </h1>
 

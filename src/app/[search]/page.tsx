@@ -41,7 +41,8 @@ const SearchPage = async ({ params: { search } }: ParamsProps) => {
   return (
     <div className="max-w-7xl mx-auto w-[95%]">
       <h1 className="text-[22px] sm:text-[36px] text-clr-primary font-bold mt-10 mb-8 dark:text-[white]">
-        Au fost gasite {dataBlog.length} bloguri pentru termenul{" "}
+        They were found
+        {dataBlog.length} blogs for the term{" "}
         <span className="italic">"{stringData}"</span>
       </h1>
 
