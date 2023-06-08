@@ -7,7 +7,7 @@ import { Search, CheckDarkMode } from "@/components";
 import { Logo, Bars } from "@/icons";
 
 export function Navigation() {
-  const [isMobile, setMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   return (
     <>
@@ -36,7 +36,7 @@ export function Navigation() {
           <Search />
           <CheckDarkMode />
           <div className="md:hidden">
-            <Bars onClick={() => setMobile((prev) => !prev)} />
+            <Bars onClick={() => setIsMobile((prev) => !prev)} />
           </div>
         </div>
       </nav>

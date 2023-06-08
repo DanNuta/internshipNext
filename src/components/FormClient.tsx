@@ -12,8 +12,6 @@ interface FormPropsClient {
   onSendData: (data: FormProps) => Promise<FormProps>;
 }
 
-interface ServerErrorProps {}
-
 export const FormClient = ({ onSendData }: FormPropsClient) => {
   const router = useRouter();
   const [isPending, setIsPending] = useState(false);
