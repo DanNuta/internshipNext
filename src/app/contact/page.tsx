@@ -1,4 +1,4 @@
-import { addDataOnServer } from "@/api";
+import { contacts } from "@/api";
 import { FormClient } from "@/components";
 import { FormProps } from "@/types";
 
@@ -6,7 +6,7 @@ const ContactPage = () => {
   async function onSubmit(data: FormProps) {
     "use server";
     try {
-      const response = await addDataOnServer.contactMail("/contact", data);
+      const response = await contacts.send("/contact", data);
 
       if (response) {
         return response;
