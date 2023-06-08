@@ -12,6 +12,8 @@ interface FormPropsClient {
   onSendData: (data: FormProps) => Promise<FormProps>;
 }
 
+interface ServerErrorProps {}
+
 export const FormClient = ({ onSendData }: FormPropsClient) => {
   const router = useRouter();
   const [isPending, setIsPending] = useState(false);
@@ -52,7 +54,12 @@ export const FormClient = ({ onSendData }: FormPropsClient) => {
     setIsPending(true);
 
     try {
-      await onSendData(form);
+      const data = await onSendData(form);
+
+      if (!data.email) {
+        setServerError(data.message);
+      }
+
       router.push("/");
     } catch (e) {
       if (typeof e === "object" && e !== null) {
@@ -70,7 +77,7 @@ export const FormClient = ({ onSendData }: FormPropsClient) => {
   return (
     <>
       {serverError && (
-        <h1 className="text-center text-red-600 text-[20px] mt-2">
+        <h1 className="text-center w-[90%] flex justify-center text-red-600 text-[20px] mt-2">
           {serverError}
         </h1>
       )}
