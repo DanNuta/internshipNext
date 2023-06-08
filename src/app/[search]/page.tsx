@@ -4,6 +4,8 @@ import { Suspense } from "react";
 import { blogs } from "@/api";
 import { AllBlogs } from "@/components";
 
+import LoadingPage from "../loading";
+
 interface ParamsProps {
   params: {
     search: string;
@@ -34,7 +36,7 @@ const SearchPage = async ({ params: { search } }: ParamsProps) => {
 
   return (
     <>
-      <Suspense fallback={<h1>Loading...</h1>}>
+      <Suspense fallback={<LoadingPage />}>
         <div className="max-w-7xl mx-auto w-[95%]">
           {/* @ts-expect-error Server Component */}
           <AllBlogs
