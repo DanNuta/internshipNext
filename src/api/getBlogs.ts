@@ -1,8 +1,8 @@
-import axios from "axios";
+import { axiosInstance } from "./axios.instance";
 
-export async function useFetchBlogs<T>(url: string): Promise<T> {
+export async function getBlogs<T>(url: string): Promise<T> {
   try {
-    const response = await axios.get(url);
+    const response = await axiosInstance.get(url);
 
     if (response.status) {
       const data = await response.data;

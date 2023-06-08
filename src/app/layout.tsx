@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { Navigation, Footer, ErrorBoundary } from "@/components";
+import { Navigation, Footer } from "@/components";
 
 import "./globals.css";
 
@@ -18,7 +18,7 @@ export default function RootLayout({
     <html id="html-root" lang="en">
       <body className="bg-color-body mt-6 dark:bg-[#242535]  ">
         <Navigation />
-        <ErrorBoundary>{children}</ErrorBoundary>
+        {children}
         <Footer />
       </body>
     </html>

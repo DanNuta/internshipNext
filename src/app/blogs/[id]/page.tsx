@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Metadata } from "next";
 
-import { useFetchSingleBlog } from "@/hooks";
+import { getBlog } from "@/api";
 import { BlogProps } from "@/types";
 import { NotFoundPage } from "@/components";
 
@@ -14,7 +14,7 @@ type Params = {
 export async function generateMetadata({
   params: { id },
 }: Params): Promise<Metadata> {
-  const { title } = (await useFetchSingleBlog(id)) as BlogProps;
+  const { title } = (await getBlog(id)) as BlogProps;
 
   if (!title || id === undefined) {
     return {
@@ -27,8 +27,9 @@ export async function generateMetadata({
 }
 
 const BlogIdPage = async ({ params: { id } }: Params) => {
-  const { _id, author, date, description, img, title } =
-    (await useFetchSingleBlog(id)) as BlogProps;
+  const { _id, author, date, description, img, title } = (await getBlog(
+    id
+  )) as BlogProps;
 
   if (!title || id === undefined) {
     return <NotFoundPage />;

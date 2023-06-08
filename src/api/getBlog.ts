@@ -1,8 +1,8 @@
-import axios from "axios";
+import { axiosInstance } from "./axios.instance";
 
-export async function useFetchSingleBlog<T>(id: string): Promise<T> {
+export async function getBlog<T>(id: string): Promise<T> {
   try {
-    const response = await axios.get(`${process.env.NEXT_API_POSTS}/${id}`);
+    const response = await axiosInstance.get(`/posts/${id}`);
     if (response.status) {
       const data = await response.data;
       return data as T;

@@ -3,9 +3,9 @@
 import { useState, useLayoutEffect } from "react";
 
 export const CheckDarkMode = () => {
-  const [check, setChecked] = useState(false);
+  const [isCheck, setChecked] = useState(false);
 
-  const imgDarkLightMode = check
+  const imgDarkLightMode = isCheck
     ? "after:bg-[url('/moon.svg')]"
     : "after:bg-[url('/dark.svg')]";
 
@@ -31,14 +31,14 @@ export const CheckDarkMode = () => {
   }
 
   useLayoutEffect(() => {
-    const dataLocalStorege = localStorage.getItem("darkMode");
+    const dataLocalStorage = localStorage.getItem("darkMode");
     const rootHtml = document.querySelector("#html-root") as HTMLHtmlElement;
 
-    if (dataLocalStorege === null) return;
-    const localData = dataLocalStorege === "dark" ? false : true;
-    setChecked(localData);
+    if (dataLocalStorage === null) return;
+    const isLocalStorageData = dataLocalStorage === "dark" ? false : true;
+    setChecked(isLocalStorageData);
 
-    rootHtml.classList.add(`${dataLocalStorege}`);
+    rootHtml.classList.add(`${dataLocalStorage}`);
   }, []);
 
   return (
@@ -49,7 +49,7 @@ export const CheckDarkMode = () => {
     >
       <span
         className={`${toggleSwich} ${
-          check ? "after:left-[2px]" : "after:right-[2px]"
+          isCheck ? "after:left-[2px]" : "after:right-[2px]"
         } ${imgDarkLightMode}`}
       ></span>
     </label>

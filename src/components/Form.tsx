@@ -4,14 +4,10 @@ interface FormProps {
   action?: (data: FormData) => void;
   onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
   title?: string;
+  children: React.ReactNode;
 }
 
-export const Form: React.FC<PropsWithChildren<FormProps>> = ({
-  action,
-  onSubmit,
-  children,
-  title,
-}) => {
+export const Form = ({ action, onSubmit, children, title }: FormProps) => {
   return (
     <div className="max-w-7xl w-[95%] mx-auto flex justify-center items-center h-[85vh] lg:max-w-[500px]">
       <form

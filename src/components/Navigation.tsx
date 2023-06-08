@@ -7,7 +7,7 @@ import { Search, CheckDarkMode } from "@/components";
 import { Logo, Bars } from "@/icons";
 
 export function Navigation() {
-  const [mobile, setMobile] = useState(false);
+  const [isMobile, setMobile] = useState(false);
 
   return (
     <>
@@ -41,7 +41,7 @@ export function Navigation() {
         </div>
       </nav>
 
-      {mobile && (
+      {isMobile && (
         <ul className="absolute w-full justify-center mt-2  flex items-center gap-x-14 text-base font-semibold text-clr-primary dark:text-card | ">
           <li>
             <Link href="/">Home</Link>

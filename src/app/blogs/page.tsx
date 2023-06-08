@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import type { Metadata } from "next";
 
-import { useFetchBlogs } from "@/hooks";
+import { getBlogs } from "@/api";
 import { AllBlogs } from "@/components";
 import { BlogProps } from "@/types";
 
@@ -10,9 +10,7 @@ export const metadata: Metadata = {
 };
 
 const BlogPage = async () => {
-  const allBlogs: Promise<BlogProps[]> = useFetchBlogs(
-    `${process.env.NEXT_API_POSTS}`
-  );
+  const allBlogs: Promise<BlogProps[]> = getBlogs(`/posts`);
 
   const blogs = await allBlogs;
 

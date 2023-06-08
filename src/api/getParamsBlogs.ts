@@ -1,12 +1,12 @@
-import axios from "axios";
+import { axiosInstance } from "./axios.instance";
 
 import { BlogProps } from "@/types";
 
-export async function useSearchParams(search: string): Promise<BlogProps[]> {
-  const url = `${process.env.NEXT_API_POSTS}?blogs=`;
+export async function getParamsBlogs(search: string): Promise<BlogProps[]> {
+  const url = `/posts?blogs=`;
 
   try {
-    const searchBlogs = await axios.get(url + search);
+    const searchBlogs = await axiosInstance.get(url + search);
 
     if (searchBlogs.status) {
       const data = (await searchBlogs.data) as BlogProps[];
