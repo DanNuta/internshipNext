@@ -11,8 +11,6 @@ export const metadata: Metadata = {
 const BlogPage = async () => {
   const allBlogs = backBlogs.list(`/posts`);
 
-  const blogs = await allBlogs;
-
   return (
     <>
       <Suspense fallback={<h1>Loading...</h1>}>

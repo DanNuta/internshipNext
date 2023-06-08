@@ -1,8 +1,8 @@
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 import { blogs } from "@/api";
 import { AllBlogs, Main, BannerSX } from "@/components";
-import { Suspense } from "react";
 
 import LoadingPage from "./loading";
 

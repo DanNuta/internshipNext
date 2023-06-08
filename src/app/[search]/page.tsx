@@ -2,8 +2,7 @@ import { Metadata } from "next";
 import { Suspense } from "react";
 
 import { blogs } from "@/api";
-import { BlogProps } from "@/types";
-import { AllBlogs, NotFoundPage } from "@/components";
+import { AllBlogs } from "@/components";
 
 interface ParamsProps {
   params: {
