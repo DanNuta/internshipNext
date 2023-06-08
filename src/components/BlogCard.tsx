@@ -34,7 +34,6 @@ export const Card = ({
 
           <p className="text-xs dark:text-[#fff] whitespace-pre-line line-clamp-3">
             {description}
-            {/* {description.length > 85 ? "..." : ""} */}
           </p>
 
           <p>
