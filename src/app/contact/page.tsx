@@ -6,7 +6,7 @@ const ContactPage = () => {
   async function onSubmit(data: FormProps) {
     "use server";
     try {
-      const response = await addDataOnServer("/contact", data);
+      const response = await addDataOnServer.contactMail("/contact", data);
 
       if (response) {
         return response;

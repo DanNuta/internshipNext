@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { Metadata } from "next";
 
-import { getBlog } from "@/api";
-import { BlogProps } from "@/types";
+import { blogs } from "@/api";
 import { NotFoundPage } from "@/components";
 
 type Params = {
@@ -14,7 +13,7 @@ type Params = {
 export async function generateMetadata({
   params: { id },
 }: Params): Promise<Metadata> {
-  const { title } = (await getBlog(id)) as BlogProps;
+  const { title } = await blogs.one(id);
 
   if (!title || id === undefined) {
     return {
@@ -27,9 +26,7 @@ export async function generateMetadata({
 }
 
 const BlogIdPage = async ({ params: { id } }: Params) => {
-  const { _id, author, date, description, img, title } = (await getBlog(
-    id
-  )) as BlogProps;
+  const { _id, author, date, description, img, title } = await blogs.one(id);
 
   if (!title || id === undefined) {
     return <NotFoundPage />;
