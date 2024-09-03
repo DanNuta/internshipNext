@@ -6,6 +6,13 @@ const nextConfig = {
       "img.freepik.com",
       "img3.wallspic.com",
       "upload.wikimedia.org",
+      "media.geeksforgeeks.org",
+      "sp-ao.shortpixel.ai",
+      "123sonography.com",
+      "discover.rbcroyalbank.com",
+      "chronicle.brightspotcdn.com",
+      "www.showallegiance.com",
+      "i.ytimg.com",
     ],
   },
 
