@@ -22,8 +22,7 @@ export const Footer = () => {
           </Link>
 
           <p className="hidden md:flex md:mt-8 md:mb-6 md:text-[12px] md:font-medium md:text-clr-primary dark:text-footer-text-dark">
-            Geosport is always ready to offer quality services, in short time,
-            with a good team and with the desire to bring Europe the home.
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut massa nibh, egestas in fermentum non, tempus eu nisl. Etiam vel hendrerit dolor. Aliquam sit amet est at nisi tincidunt hendrerit.
           </p>
 
           <ul className="hidden md:flex md:items-center md:gap-6 dark:text-card">
@@ -38,7 +37,7 @@ export const Footer = () => {
             <li>
               <a
                 target="_blank"
-                href="https://www.youtube.com/channel/UCmC_gBsoRYIik8Ez-Y1oPSA"
+                href="https://www.facebook.com/"
               >
                 <Facebook />
               </a>
@@ -46,7 +45,7 @@ export const Footer = () => {
             <li>
               <a
                 target="_blank"
-                href="https://www.youtube.com/channel/UCmC_gBsoRYIik8Ez-Y1oPSA"
+                href="https://www.instagram.com/"
               >
                 <Youtube />
               </a>
@@ -89,8 +88,8 @@ export const Footer = () => {
 
             <li className="flex justify-center items-center gap-2 md:justify-start">
               <Email />
-              <Link href="mailto:scgeotermal.av@gmail.com">
-                scgeotermal.av@gmail.com
+              <Link href="mailto:test.av@gmail.com">
+              test.av@gmail.com
               </Link>
             </li>
 

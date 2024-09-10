@@ -13,6 +13,7 @@ const nextConfig = {
       "chronicle.brightspotcdn.com",
       "www.showallegiance.com",
       "i.ytimg.com",
+      "borgenproject.org"
     ],
   },
 
